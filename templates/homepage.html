@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<meta http-equiv="refresh" content="<!?php echo $sec?>;URL='<!?php echo $page?>'"> refreshes the page when using php language to code-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style2.css') }}"> <!--includes css file-->
+    <title> Register </title>
+</head>
+<body>
+
+    <!--nav bar-->
+    <ul>
+        <li><a class="active" href="{{ url_for('homepage') }}">Home</a></li>
+        <li><a href="{{ url_for('index') }}">Lectures</a></li>
+        <li><a href="{{ url_for('enroll') }}">Enroll</a></li>
+        <li style="float:right"><a href="{{ url_for('logout') }}">logout?</a></li>
+    </ul>
+
+    <!--allows the creation of another box surrounding the welcome text for display purposes.-->
+    <div class="head">
+        <h1>
+            Welcome back {{ name }}
+        </h1>        
+    </div>
+
+    <!--splits the remaining page into two columns-->
+    <br><br><br>
+    <div class="homeColumn">
+        <center>
+            <h1>Upcoming Lectures</h1>
+            <br /><br />
+            <table class="upcomingLectures">
+                <thead>
+                    <tr>
+                        <!--table headers-->
+                        <th>Module</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--Items in the table go inside the th tags-->
+                    <!-- loop though values from database array -->
+                    {% for row in data %} 
+                        <tr>
+                            <td>{{row[0]}}</td> <!-- module name -->
+                            <td>{{row[1]}}</td> <!-- start date -->
+                            <td>{{row[2]}}</td> <!-- end date -->
+                        </tr> <!--next row-->
+                    {% endfor %}
+                </tbody>
+            </table>
+        </center>
+    </div>
+</body>
+</html>
+
+

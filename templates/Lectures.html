@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style2.css') }}"> <!--includes css file-->
+    <title> Register </title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js" integrity="sha512-aMGMvNYu8Ue4G+fHa359jcPb1u+ytAF+P2SCb+PxrjCdO3n3ZTxJ30zuH39rimUggmTwmh2u7wvQsDTHESnmfQ==" crossorigin="anonymous"></script>
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function () {
+            // Connect to the Socket.IO server.
+            var socket = io();
+
+            // Event handler for server sent data.
+            socket.on('state_change', function (msg) {
+                $('#state').text(function (i, oldText) {
+                    return "Current State: " + msg.new_state;
+                });
+            });
+
+            // Event handler for server sent data.
+            socket.on('image_data', function (msg) {
+                $('#img').attr('src', msg.buffer);
+                $('#studentID').text(function (i, oldText) {
+                    return "Student ID: " + msg.student_id
+                });
+                $('#confidence').text(function (i, oldText) {
+                    if(msg.wait_timer != "-1")
+                        return "Please wait: " + msg.wait_timer
+                    else
+                        return "Distance (lower the better): " + msg.confidence
+                });
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <!--creates page navigation bar-->
+    <ul>
+        <li><a href="{{ url_for('homepage') }}">Home</a></li>
+        <li><a class="active" href="{{ url_for('index') }}">Lectures</a></li>
+        <li><a href="{{ url_for('enroll') }}">Enroll</a></li>
+        <li style="float:right"><a href="{{ url_for('logout') }}">Logout</a></li>
+    </ul>
+
+    <!--splits the remaining page into two columns-->
+    <br><br><br>
+    <div class="row">
+        <div class="webcam">
+            <img id="img" class="webcamImage" />
+        </div>
+        <div class="sideColumn">
+            <!--shows image data-->
+            <h2 id="state">
+            </h2>
+            <h2 id="confidence">
+            </h2>
+        </div>
+    </div>
+</body>
+</html>

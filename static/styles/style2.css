@@ -1,0 +1,189 @@
+/* Lectures, homepage and enrollment style sheet */
+
+.homeColumn { /* container upcoming lecture table on homepage */
+    margin: 0;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    width: 70%;
+    min-width: 650px;
+    display: block;
+    top: 55%;
+    left: 50%;
+    transform: translate(20%, 30%);
+    color: rgb(255, 255, 255);
+    background-color: #d83131;
+    border-radius: 15px;
+}
+
+.head { /* welcome box on homepage */
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 250px;
+    transform: translate(5%, 50%);
+    text-align: center;
+    float: Left;
+    width: 35%;
+    display: block;
+    top: 18%;
+    left: 3%;
+    color: white;
+    background-color: #333;
+    border-radius: 10px;
+    word-break: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/*  following code is for the table on the homepage*/
+.upcomingLectures { /*sets sizing and shadowing for the table on the homepage*/
+    border-collapse: collapse;
+    margin: auto;
+    min-width: 500px;
+    box-shadow: 0 0 20px rgb(75 75 75);
+}
+/*adds the css for each row in the table*/
+.upcomingLectures thead tr {
+    background-color: rgb(75 75 75);
+    color: white;
+    text-align: center;
+}
+/*adds padding to all the text in the table header and rows*/
+.upcomingLectures th,
+.upcomingLectures td {
+    padding: 12px 15px;
+}
+/*specific settings for the rows in the main body of the table not in the headers*/
+.upcomingLectures tbody tr {
+    border-bottom: 1px solid #a9a9a9;
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+/*adds a different setting for each even numbered row of the table*/
+.upcomingLectures tbody tr:nth-last-of-type(even) {
+    background-color: #d69b9b;
+    color: black;
+}
+/*specific settings for the final row of the table*/
+.upcomingLectures tbody:last-of-type {
+    border-bottom: 2px solid #9c0000;
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+/*active row settings for the next lecture*/
+.upcomingLectures tbody tr.activeRow {
+    font-weight: 900;
+    color: blue;
+}
+
+.webcam { /* container to hold webcam footage on lectures page */
+    margin: 0;
+    width: 65%;
+    height: 65%;
+    top: 60%;
+    left: 35%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+}
+
+.sideColumn { /* container to hold text output on lectures page */
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1%;
+    width: 25%;
+    left: 75%;
+    transform: translate(85%, 37%);
+    color: rgb(255, 255, 255);
+    background-color: #d83131;
+    border-radius: 15px;
+    word-break: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* navbar: */
+ul { /* main bar features */
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    font-size: 25px;
+}
+
+li { /* home and lectures buttons */
+    float: left;
+}
+
+li a { /*button contents*/
+    display: block;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover { /* button colour when mouse hovers over tab */
+    background-color: #9c0000;
+}
+
+.active { /* button colour for active tab */
+    background-color: #707070;
+}
+/*Navbar finished*/
+
+body { /*background colours*/
+    background-color: #333;
+    background-image: url(backgrounds/uni.jpg);
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*design for Enrollment container*/
+.enroll-container {
+    margin: 0;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    width: 20%;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -80%);
+    background: blue;
+    border-radius: 25px;
+    background-position: center;
+    color: white;
+}
+
+/*button design*/
+button[type=submit] {
+    padding: 5px 15px;
+    background: rgb(65, 65, 65);
+    border: 1px solid rgb(0, 0, 0);
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-family: "Times New Roman", Times, serif;
+    color: white;
+}
+
+ /*changes colour when hovered over*/
+button[type=submit]:hover {
+    background-color: #0648c1;
+}
+/*Enrollment container finished*/
+
+
+.webcamImage { /* displays webcame image within webcam container */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    transform: translate(0%, -4%);
+    border-radius: 15px;
+}

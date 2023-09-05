@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/style1.css') }}">
+    <title> Login </title>
+</head>
+
+<body>
+
+    <h2> </h2>
+    <!--creates box around login textboxes-->
+    <div class="login-container" id="form">
+        <center>
+            <br>
+            <form method="POST">
+                <!--POST used due to the login details being sensitive data -->
+                <label for="username">Username</label><br>
+                <input type="text" placeholder="Your Username..." name="username" id="username" />
+                <br><br>
+                <label for="password">Password</label><br>
+                <input type="password" placeholder="Your Password..." name="password" id="password" />
+                <br><br><button type="submit" name="submit"><b><i>Login</i></b></button>
+            </form>
+        </center>
+    </div>
+
+</body>
+</html>
+
+
+
